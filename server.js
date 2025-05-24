@@ -1,7 +1,13 @@
 const express = require("express");
+const cors = require("cors");
+const path = require("path");
 const app = express();
 
+app.use(express.static(path.join(__dirname, "../ecommerce-app")));
+
+require("dotenv").config();
 app.use(express.json());
+app.use(cors());
 
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
